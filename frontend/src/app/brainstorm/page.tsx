@@ -1,12 +1,12 @@
 import { LampDemo } from "@/components/LampEffect";
 import React from "react";
-import { ListUnderlineItem } from "../home/page";
 import { CircleUserRound } from "lucide-react";
 import Link from "next/link";
 import Subheadings from "@/components/Subheadings";
 import { BentoGridDemo } from "@/components/BentoGrid";
 import Image from "next/image";
 import { ExpandableCardDemo } from "@/components/ExpandableCard";
+import { ListUnderlineItem } from "@/components/ListUnderlineItem";
 
 type Props = {};
 

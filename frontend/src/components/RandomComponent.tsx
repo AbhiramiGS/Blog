@@ -1,9 +1,10 @@
 import React from "react";
 import { BackgroundBoxesDemo } from "./Beams";
 import Image from "next/image";
-import { ListUnderlineItem } from "@/app/home/page";
+
 import { CircleUserRound } from "lucide-react";
 import Link from "next/link";
+import { ListUnderlineItem } from "./ListUnderlineItem";
 
 type Props = {};
 

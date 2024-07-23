@@ -3,9 +3,9 @@ import { notFound } from "next/navigation";
 import BlogsCard from "@/components/BlogsCard";
 import EditBlog from "@/components/EditBlog";
 import Link from "next/link";
-import { ListUnderlineItem } from "../home/page";
 import { CircleUserRound } from "lucide-react";
 import { ExpandableCardDemo } from "@/components/CardExpadable";
+import { ListUnderlineItem } from "@/components/ListUnderlineItem";
 
 interface Item {
   id: number;
@@ -51,7 +51,7 @@ const BlogList = async () => {
         </div>
       </div>
       <div className="py-8">
-        <ExpandableCardDemo cards={items} />
+        <ExpandableCardDemo cards={items ?? []} />
       </div>
     </div>
   );

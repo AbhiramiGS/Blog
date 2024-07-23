@@ -1,4 +1,5 @@
 import { AuroraBackgroundDemo } from "@/components/AuroraBackground";
+import { ListUnderlineItem } from "@/components/ListUnderlineItem";
 import MasonryLayout from "@/components/MasonryLayout";
 import { CircleUserRound } from "lucide-react";
 import Link from "next/link";
@@ -6,7 +7,7 @@ import React from "react";
 
 type Props = {};
 
-const page = (props: Props) => {
+const HomePage = (props: Props) => {
   return (
     <div className="h-screen">
       <div>
@@ -39,18 +40,7 @@ const page = (props: Props) => {
   );
 };
 
-export const ListUnderlineItem = ({ text, href }: { text: string; href: string }) => {
-  return (
-    <div>
-      <li className="text-md py-1 relative inline-block after:content-[''] after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 after:bg-current after:scale-x-0 after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left text-[#9f9763]">
-        <Link className="scroll-smooth" href={href}>
-          {text}
-        </Link>
-      </li>
-    </div>
-  );
-};
 
 
 
-export default page;
+export default HomePage;

@@ -48,11 +48,14 @@ const BlogEditForm = ({ blog }: Props) => {
     console.log(formData); // Handle form submission logic here
 
     const sending = new FormData();
+    //@ts-ignore
     sending.append("id", blog.id);
+    //@ts-ignore
     sending.append("imageUrl", file?.name);
     sending.append("title", formData.title);
     sending.append("createdAt", new Date().toISOString());
     sending.append("content", content);
+    //@ts-ignore
     sending.append("file", file);
     await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blog/editBlog`, sending);
     setFormData({
