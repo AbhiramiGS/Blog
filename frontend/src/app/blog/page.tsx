@@ -18,7 +18,7 @@ interface Item {
 const BlogList = async () => {
   const fetchData = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/blog/allBlogs");
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blog/allBlogs`);
       return res.data as Item[];
     } catch (error) {
       console.error("Error fetching data", error);

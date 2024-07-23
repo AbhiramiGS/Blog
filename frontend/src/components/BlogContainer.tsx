@@ -17,7 +17,7 @@ const BlogContainer = ({ blog }: Props) => {
   return (
     <div className="max-w-3xl mx-auto">
       <Image
-        src={`http://localhost:5000/assets/${blog.imageUrl}`}
+        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/assets/${blog.imageUrl}`}
         alt={blog.title}
         height={500}
         width={1000}

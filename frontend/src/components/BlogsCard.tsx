@@ -80,7 +80,7 @@ export const CardComponent = ({
   return (
     <div className="border cursor-pointer rounded-md">
       <Image
-        src={`http://localhost:5000/assets/${src}`}
+        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/assets/${src}`}
         alt={alt}
         height={height}
         width={width}

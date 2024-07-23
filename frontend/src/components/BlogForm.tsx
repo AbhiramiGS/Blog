@@ -41,7 +41,7 @@ const BlogForm: React.FC = () => {
     sending.append("createdAt", new Date().toISOString());
     sending.append("content", content);
     sending.append("file", file);
-    await axios.post("http://localhost:5000/blog/createBlog", sending);
+    await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blog/createBlog`, sending);
     setFormData({
       imageUrl: "",
       title: "",

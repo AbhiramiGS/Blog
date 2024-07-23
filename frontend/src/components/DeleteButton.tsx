@@ -19,7 +19,7 @@ type Props = {
 const DeleteButton = ({ blog }: Props) => {
   const router = useRouter();
   const onDelete = async () => {
-    await axios.post("http://localhost:5000/blog/deleteBlog", {
+    await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blog/deleteBlog`, {
       id: blog.id,
     });
     console.log("fklergj");

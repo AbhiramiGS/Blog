@@ -89,7 +89,7 @@ export function ExpandableCardDemo({ cards }: ExpandableCardDemoProps) {
                   priority
                   width={500}
                   height={500}
-                  src={`http://localhost:5000/assets/${active.imageUrl}`}
+                  src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/assets/${active.imageUrl}`}
                   alt={active.title}
                   className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
                 />
@@ -155,7 +155,7 @@ export function ExpandableCardDemo({ cards }: ExpandableCardDemoProps) {
                 <Image
                   width={500}
                   height={500}
-                  src={`http://localhost:5000/assets/${card.imageUrl}`}
+                  src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/assets/${card.imageUrl}`}
                   alt={card.title}
                   className="h-60 w-full rounded-lg object-cover object-top"
                 />

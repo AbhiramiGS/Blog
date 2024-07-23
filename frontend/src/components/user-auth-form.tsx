@@ -40,7 +40,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/auth/login",
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/login`,
         {
           email: formData.email,
           password: formData.password,
