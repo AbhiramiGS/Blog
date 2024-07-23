@@ -24,7 +24,7 @@ export function SidebarDemo() {
   const links = [
     {
       label: "Dashboard",
-      href: "/admin",
+      href: "/home",
       icon: (
         // <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
         <LayoutDashboard size={20} />
