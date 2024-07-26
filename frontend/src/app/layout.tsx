@@ -4,6 +4,7 @@ import "./globals.css";
 import "./quill.css";
 import "react-quill/dist/quill.snow.css";
 import { SidebarDemo } from "@/components/Sidebar";
+import { AuthProvider } from "@/provider/AuthContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <AuthProvider>{children}</AuthProvider>
+      </body>
     </html>
   );
 }

@@ -10,6 +10,7 @@ import { fileURLToPath } from "url";
 import multer from "multer";
 import { db } from "./utils/db";
 import fs from "fs";
+import verifyToken from "./middleware";
 
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
@@ -39,15 +40,16 @@ app.use("/protected", protectedRoute);
 app.use("/blog", blogRoutes);
 
 app.use("/assets", express.static(resolve("public", "assets")));
-app.post("/blog/createBlog", upload.single("file"), async (req, res) => {
+app.post("/blog/createBlog", verifyToken, upload.single("file"), async (req, res) => {
   try {
-    const { imageUrl, title, content } = req.body;
-
+    const { imageUrl, title, content, userId } = req.body;
+ console.log("DATA", imageUrl, title, content, userId)
     const user = await db.blog.create({
       data: {
         imageUrl,
         title,
         content,
+        userId: Number(userId),
       },
     });
     res.status(201).json({ message: "Blog created successfully" });

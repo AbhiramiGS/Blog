@@ -57,12 +57,15 @@ const BlogEditForm = ({ blog }: Props) => {
     sending.append("content", content);
     //@ts-ignore
     sending.append("file", file);
-    await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blog/editBlog`, sending);
+    await axios.post(
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/blog/editBlog`,
+      sending
+    );
     setFormData({
-        imageUrl: "",
-        title: "",
-      });
-      setContent("");
+      imageUrl: "",
+      title: "",
+    });
+    setContent("");
   };
 
   return (
@@ -71,6 +74,8 @@ const BlogEditForm = ({ blog }: Props) => {
         <Dropzone
           accept={{
             "image/png": [".png"],
+            "image/jpg": [".jpg"],
+            "image/jpeg": [".jpeg"],
             "text/html": [".html", ".htm"],
           }}
           multiple={false}

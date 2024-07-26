@@ -5,7 +5,7 @@ type Props = {}
 
 const page = (props: Props) => {
   return (
-    <div>Welcome admin!!!
+    <div className='w-full overflow-hidden'>
       <BlogForm />
     </div>
   )

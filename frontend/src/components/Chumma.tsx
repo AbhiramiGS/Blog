@@ -11,47 +11,35 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import {
-  AlignLeft,
-  CirclePlus,
-  CircleUserRound,
-  LayoutDashboard,
-  LogOut,
-  SquarePen,
-} from "lucide-react";
 
-export function SidebarDemo() {
+export function Chumma() {
   const links = [
     {
       label: "Dashboard",
-      href: "/",
+      href: "#",
       icon: (
-        // <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-        <LayoutDashboard size={20} />
+        <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "Create Blog",
-      href: "/admin/blog",
+      label: "Profile",
+      href: "#",
       icon: (
-        // <IconUserBolt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-        <CirclePlus size={20} />
+        <IconUserBolt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "Manage Blogs",
-      href: "/admin/manage",
+      label: "Settings",
+      href: "#",
       icon: (
-        // <IconSettings className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-        <SquarePen size={20} />
+        <IconSettings className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
       label: "Logout",
-      href: "/login",
+      href: "#",
       icon: (
-        // <IconArrowLeft className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-        <LogOut size={20} />
+        <IconArrowLeft className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
   ];
@@ -59,8 +47,8 @@ export function SidebarDemo() {
   return (
     <div
       className={cn(
-        "rounded-md flex flex-col md:flex-row bg-slate-100 dark:bg-neutral-800 w-full flex-1 border border-neutral-200 dark:border-neutral-700 overflow-hidden",
-        "h-screen" // for your use case, use `h-screen` instead of `h-[60vh]`
+        "rounded-md flex flex-col md:flex-row bg-gray-100 dark:bg-neutral-800 w-full flex-1 max-w-7xl mx-auto border border-neutral-200 dark:border-neutral-700 overflow-hidden",
+        "h-[60vh]" // for your use case, use `h-screen` instead of `h-[60vh]`
       )}
     >
       <Sidebar open={open} setOpen={setOpen}>
@@ -76,33 +64,39 @@ export function SidebarDemo() {
           <div>
             <SidebarLink
               link={{
-                label: "Admin",
+                label: "Manu Arora",
                 href: "#",
                 icon: (
-                    <CircleUserRound />
+                  <Image
+                    src="https://assets.aceternity.com/manu.png"
+                    className="h-7 w-7 flex-shrink-0 rounded-full"
+                    width={50}
+                    height={50}
+                    alt="Avatar"
+                  />
                 ),
               }}
             />
           </div>
         </SidebarBody>
       </Sidebar>
+      <Dashboard />
     </div>
   );
 }
 export const Logo = () => {
   return (
     <Link
-      href="/admin"
+      href="#"
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
     >
-      {/* <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" /> */}
+      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
       <motion.span
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="font-medium text-[#9f9763] dark:text-white whitespace-pre"
+        className="font-medium text-black dark:text-white whitespace-pre"
       >
-        <span className="text-4xl font-black">kadhai</span>
-        <span className="font-medium self-end">.inc</span>
+        Acet Labs
       </motion.span>
     </Link>
   );
@@ -113,8 +107,7 @@ export const LogoIcon = () => {
       href="#"
       className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
     >
-      <AlignLeft />
-      {/* <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" /> */}
+      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
     </Link>
   );
 };
@@ -144,4 +137,3 @@ const Dashboard = () => {
     </div>
   );
 };
-

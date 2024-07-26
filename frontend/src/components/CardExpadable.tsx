@@ -9,11 +9,9 @@ interface Card {
   id: number;
   imageUrl: string;
   title: string;
-  // description: string;
   createdAt: string;
-  // ctaText: string;
-  // ctaLink: string;
   content: string | (() => JSX.Element);
+  
 }
 
 interface ExpandableCardDemoProps {
@@ -24,6 +22,8 @@ export function ExpandableCardDemo({ cards }: ExpandableCardDemoProps) {
   const [active, setActive] = useState<Card | null>(null);
   const id = useId();
   const ref = useRef<HTMLDivElement>(null);
+
+  console.log(cards)
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
@@ -132,6 +132,7 @@ export function ExpandableCardDemo({ cards }: ExpandableCardDemoProps) {
                     exit={{ opacity: 0 }}
                     className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
                   >
+                  {active.User?.name}
                     {typeof active.content === "function"
                       ? active.content()
                       : parse(active.content)}
@@ -166,6 +167,9 @@ export function ExpandableCardDemo({ cards }: ExpandableCardDemoProps) {
                   className="font-medium text-neutral-800 dark:text-neutral-200 flex flex-col items-center justify-center text-center md:text-left text-base"
                 >
                   <p className="text-[#9f9763] font-bold">{card.title}</p>
+                  <p>
+                    {card.User?.name}
+                  </p>
                   <p className="text-muted-foreground text-sm mt-2">
                     {new Date(card.createdAt).toLocaleDateString("en-IN", {
                       weekday: "long",

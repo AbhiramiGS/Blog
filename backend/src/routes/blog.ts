@@ -9,7 +9,16 @@ const router = express.Router();
 
 router.get("/allBlogs", async (req, res) => {
   try {
-    const blogs = await db.blog.findMany();
+    const blogs = await db.blog.findMany({
+      include: {
+        User: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+    console.log("bl", blogs);
     res.json(blogs);
   } catch (error) {
     console.error(error);
@@ -22,6 +31,9 @@ router.get("/blog/:id", async (req, res) => {
     const blog = await db.blog.findUnique({
       where: {
         id: Number(req.params.id),
+      },
+      include: {
+        User: true,
       },
     });
     res.json(blog);

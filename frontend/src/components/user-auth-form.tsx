@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/provider/AuthContext";
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -23,6 +24,8 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
     email: "",
     password: "",
   });
+
+  const { login } = useAuth();
 
   const router = useRouter();
 
@@ -52,14 +55,14 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
         }
       );
 
-      const { role } = response.data;
+      const { role, id, token } = response.data;
 
       console.log(role);
-
+      login(id, token );
       if (role === "ADMIN") {
         router.push("/admin");
       } else {
-        router.push("/home");
+        router.push("/");
       }
     } catch (error) {
       console.error("Login Failed", error);

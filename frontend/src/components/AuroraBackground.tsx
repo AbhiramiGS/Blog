@@ -13,7 +13,7 @@ type Props = {
 
 export function AuroraBackgroundDemo(props: Props) {
   return (
-    <AuroraBackground>
+    <AuroraBackground className="">
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -22,7 +22,7 @@ export function AuroraBackgroundDemo(props: Props) {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative flex flex-col gap-4 items-center justify-center px-4"
+        className="relative flex flex-col gap-4 items-center justify-center px-4 w-full"
       >
         <div className="text-3xl md:text-4xl font-bold text-[#9f9763] text-center">
           {props.title}

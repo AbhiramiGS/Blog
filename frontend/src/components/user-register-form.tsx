@@ -74,7 +74,7 @@ export function UserRegisterForm({
       }
     );
 
-    router.push("/");
+    router.push("/login");
 
     setFormData({
       name: "",

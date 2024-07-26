@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import QuillEditor from "./QuillEditor";
 import Dropzone from "react-dropzone";
 import { Pencil } from "lucide-react";
+import { useAuth } from "@/provider/AuthContext";
 
 interface FormData {
   imageUrl: string;
@@ -11,6 +12,7 @@ interface FormData {
 }
 
 const BlogForm: React.FC = () => {
+  const {userId, token } = useAuth()
   const [formData, setFormData] = useState<FormData>({
     imageUrl: "",
     title: "",
@@ -41,9 +43,14 @@ const BlogForm: React.FC = () => {
     sending.append("title", formData.title);
     sending.append("createdAt", new Date().toISOString());
     sending.append("content", content);
+    sending.append("userId", String(userId))
     //@ts-ignore
     sending.append("file", file);
-    await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blog/createBlog`, sending);
+    await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/blog/createBlog`, sending, {
+      headers: {
+        Authorization: token,
+      }
+    });
     setFormData({
       imageUrl: "",
       title: "",
